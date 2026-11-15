@@ -2,7 +2,6 @@
 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
-// data looks like: [{ brand: "Dell", quantity: 4 }, ...]
 export default function BrandBarChart({
   data,
 }: {

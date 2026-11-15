@@ -78,9 +78,16 @@ export default function RootLayout({
             Profile
           </Link>
           
-            <SignInButton />
+        {/* only visible when nobody is logged in */}
+<Show when="signed-out">
+  <SignInButton />
+  <SignUpButton />
+</Show>
 
-              <SignUpButton></SignUpButton>
+{/* only visible when a user is logged in: avatar with a sign out menu */}
+<Show when="signed-in">
+  <UserButton />
+</Show>
         </nav>
          </ClerkProvider>
       </body>

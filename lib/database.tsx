@@ -6,7 +6,7 @@ import PocketBase from "pocketbase";
 
 const db = new PocketBase(process.env.POCKETBASE_URL!);
 
-// let several requests run at the same time without cancelling each other
+//let several requests run at the same time without cancelling each other
 db.autoCancellation(false);
 
 async function authenticate() {

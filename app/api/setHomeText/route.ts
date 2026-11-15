@@ -5,7 +5,7 @@ export async function GET() {
   try {
     await connectRedis();
 
-    // store all the home page text in Redis under the key "home"
+    //store all the home page text in redis under the key "home"
     await redis.hSet("home", {
       eyebrow: "Product Management System",
       title: "Laptop Store",

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
 export default function UpdateProduct() {
-  //read the id from the URL
+  //read the id from the url
   const { id } = useParams<{ id: string }>();
 
   const [brand, setBrand] = useState("");
@@ -16,9 +16,15 @@ export default function UpdateProduct() {
 
   //load the current values and put them in the form
   useEffect(() => {
+    let active = true; //becomes false if this load is no longer needed
+
     const getProduct = async () => {
       const res = await fetch(`/api/getOne?id=${id}`);
       const product = await res.json();
+
+      //ignore an old answer so it can't overwrite what the user typed
+      if (!active) return;
+
       setBrand(product.brand ?? "");
       setModel(product.model ?? "");
       setPrice(product.price ?? "");
@@ -26,6 +32,11 @@ export default function UpdateProduct() {
       setImage(product.image ?? "");
     };
     getProduct();
+
+    //react calls this when the effect is thrown away
+    return () => {
+      active = false;
+    };
   }, [id]);
 
   const updateProduct = async () => {

@@ -5,7 +5,7 @@ export async function GET() {
   try {
     await authenticate();
 
-    // get every record from the products table
+    //get every record from the products table
     const products = await db.collection("products").getFullList({
       sort: "-created",
     });

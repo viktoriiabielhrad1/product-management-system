@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  background: #f7f7f8;
+  background: #E6BCFA;
   color: #171717;
   font-family:
     Arial,
@@ -54,7 +54,7 @@ h1 {
 
 .card {
   padding: 22px;
-  background: white;
+  background: #ffffff;
   border: 1px solid #e8e8e8;
   border-radius: 20px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
@@ -75,7 +75,7 @@ h1 {
   padding: 16px 18px;
   border: 1px solid #ddd;
   border-radius: 16px;
-  background: white;
+  background: #ffffff;
   color: #171717;
   font: inherit;
   outline: none;
@@ -98,7 +98,7 @@ h1 {
   margin: auto;
   padding: 8px;
 
-  background: rgba(255, 255, 255, 0.94);
+  background:#ffffff;
   border: 1px solid #e8e8e8;
   border-radius: 22px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
@@ -122,11 +122,230 @@ h1 {
 }
 
 .bottomNav a:active {
-  background: #f0f0f0;
+  background: #ffffff;
   transform: scale(0.97);
 }
 
 .bottomNav span {
   color: #171717;
   font-size: 22px;
+}
+/* Extra styles for the product management app */
+
+/* a little more room on big screens for the products table */
+.content {
+  max-width: 720px;
+}
+
+.bottomNav {
+  max-width: 688px;
+  padding-right: 30px;
+  background: #ffffff;
+}
+
+/* spacing between the title and cards */
+h1 + .card {
+  margin-top: 24px;
+}
+
+.card + .card {
+  margin-top: 18px;
+}
+
+.card p + p {
+  margin-top: 8px;
+}
+
+/* let wide content (table, graphs) scroll sideways on small screens */
+.card {
+  overflow-x: auto;
+}
+
+/* ----- products table ----- */
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.card th {
+  padding: 10px 8px;
+  border-bottom: 2px solid #e8e8e8;
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.card td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+.card tbody tr:hover {
+  background: #fafafa;
+}
+
+/* small laptop photo in the table */
+.card td img {
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* view and ddit links in the table */
+.card td a {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  color: #171717;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card td a:hover {
+  background: #f0f0f0;
+}
+
+/* delete button in the table */
+.card td button {
+  padding: 6px 10px;
+  border: 1px solid #f3c2c2;
+  border-radius: 10px;
+  background: #fff5f5;
+  color: #b91c1c;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card td button:hover {
+  background: #fde2e2;
+}
+
+/* ----- single product page ----- */
+/* big laptop photo */
+.card > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 14px;
+}
+
+/* "edit this product" link */
+.card > a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #171717;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ----- add and update forms ----- */
+.card form p {
+  margin: 0 0 14px;
+}
+
+.card form label {
+  display: block;
+  color: #171717;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.card form input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  color: #171717;
+  font: inherit;
+  font-weight: 400;
+  outline: none;
+}
+
+.card form input:focus {
+  border-color: #171717;
+}
+
+.card form button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: #171717;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.card form button:hover {
+  background: #333;
+}
+
+/* the "Product added" / "Product updated" message */
+.card form + p {
+  margin-top: 14px;
+  color: #171717;
+  font-weight: 600;
+}
+
+/* ----- sign in / sign up buttons in the bottom nav ----- */
+.bottomNav {
+  align-items: center;
+  gap: 4px;
+}
+
+.bottomNav button:not([class*="cl-"]) {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  color: #171717;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.bottomNav button:not([class*="cl-"]):hover {
+  background: #f0f0f0;
+}
+
+/* ----- phones ----- */
+@media (max-width: 480px) {
+  .page {
+    padding: 32px 14px 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .bottomNav a {
+    padding: 6px 2px;
+    font-size: 10px;
+  }
+
+  .bottomNav span {
+    font-size: 18px;
+  }
 }

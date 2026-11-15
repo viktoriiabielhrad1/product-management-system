@@ -13,11 +13,7 @@ export default function Home() {
         <p>Welcome to the app.</p>
       </div>
       
-      
-       <div className="card">
-        <h2>Hmmm</h2>
-        <p>We should probably login.</p>
-      </div>
+    
       
     </section>
   );

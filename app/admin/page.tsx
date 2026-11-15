@@ -19,17 +19,17 @@ export default function Admin() {
 
   useEffect(() => {
     const getStats = async () => {
-      // get all products from the database through our API
+      //get all products from the database through the api
       const res = await fetch("/api/getAll");
       const products = await res.json();
 
-      // count how many products each brand has, e.g. { Dell: 4, Lenovo: 4, Acer: 2 }
+      //count how many products each brand has
       const counts: Record<string, number> = {};
       for (const product of products) {
         counts[product.brand] = (counts[product.brand] ?? 0) + 1;
       }
 
-      // turn the counts into a list the graphs can use
+      //turn the counts into a list the graphs can use
       setData(
         Object.entries(counts).map(([brand, quantity]) => ({ brand, quantity }))
       );

@@ -11,7 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-// tell Chart.js which parts we are using
+//tell chart.js which parts i'm using
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
 
 export default function BrandLineChart({
@@ -19,7 +19,7 @@ export default function BrandLineChart({
 }: {
   data: { brand: string; quantity: number }[];
 }) {
-  // Chart.js wants the labels and the numbers as two separate lists
+  //chart.js wants the labels and the numbers as two separate lists
   const chartData = {
     labels: data.map((item) => item.brand),
     datasets: [
@@ -31,7 +31,7 @@ export default function BrandLineChart({
     ],
   };
 
-  // start the y axis at 0 and count in whole numbers
+  //start the y axis at 0 and count in whole numbers
   const options = {
     scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } },
   };

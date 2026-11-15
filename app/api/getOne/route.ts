@@ -5,7 +5,7 @@ export async function GET(request: NextRequest) {
   try {
     await authenticate();
 
-    // read the id from the URL
+    //read the id from the URL
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
 

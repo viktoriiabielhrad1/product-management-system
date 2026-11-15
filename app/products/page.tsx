@@ -7,18 +7,18 @@ import Image from "next/image";
 export default function Products() {
   const [products, setProducts] = useState<any[]>([]);
 
-  // get all products from our API
+  //get all products from api
   const getProducts = async () => {
     const res = await fetch("/api/getAll");
     setProducts(await res.json());
   };
 
-  // run once when the page loads
+  //run once when the page loads
   useEffect(() => {
     getProducts();
   }, []);
 
-  // delete one product, then reload the list
+  //delete one product, then reload the list
   const deleteProduct = async (id: string) => {
     await fetch(`/api/deleteProduct?id=${id}`, { method: "DELETE" });
     getProducts();

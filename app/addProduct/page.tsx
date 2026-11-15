@@ -12,7 +12,7 @@ export default function AddProduct() {
   const [message, setMessage] = useState("");
 
   const addProduct = async () => {
-    //build the URL values and send them to API
+    //build the url values and send them to api
     const params = new URLSearchParams({ brand, model, price, description, image });
     const res = await fetch(`/api/addProduct?${params}`);
 

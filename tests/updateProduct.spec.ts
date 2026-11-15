@@ -18,7 +18,7 @@ test("we can change a product and it is saved in the database", async ({ page, r
   const product = await addTestProduct(request, "Update Test");
 
   await page.goto(`/updateProduct/${product.id}`);
-  // wait until the form has loaded the old values
+  //wait until the form has loaded the old values
   await expect(page.getByLabel("Model")).toHaveValue("Update Test");
 
   await page.getByLabel("Model").fill("Changed Model");
@@ -26,7 +26,7 @@ test("we can change a product and it is saved in the database", async ({ page, r
   await page.getByRole("button", { name: "Save changes" }).click();
   await expect(page.getByText("Product updated")).toBeVisible();
 
-  // read the product back from the API and check the new values
+  //read the product back from the api and check the new values
   const res = await request.get(`/api/getOne?id=${product.id}`);
   const saved = await res.json();
   expect(saved.model).toBe("Changed Model");

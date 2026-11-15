@@ -1,6 +1,5 @@
 
 import { NextRequest, NextResponse } from "next/server";
-
 import { db, authenticate } from '@/lib/database';
 
 
@@ -10,22 +9,16 @@ export async function GET(request: NextRequest) {
 
     await authenticate();
 
-
     const { searchParams } = new URL(request.url);
 
-
-     // Extract the variables
-
-
+     //Extract the variables
     const brand = searchParams.get("brand");
     const model = searchParams.get("model");
     const description = searchParams.get("description");
     const price = searchParams.get("price");
     const image = searchParams.get("image") ?? "";
 
-
-    // check they exist
-
+    //check they exist
     if(!brand || !model || !description || price === null || price.trim() === ""){
 
       return NextResponse.json(
@@ -37,9 +30,6 @@ export async function GET(request: NextRequest) {
       );
 
     }
-
-
-
     const product = await db.collection("products").create({
 
       brand,
@@ -49,11 +39,7 @@ export async function GET(request: NextRequest) {
       image,
     });
 
-
-
-
-
-    // send the OK back to the client with the created product
+    //send the OK back to the client with the created product
 
     return NextResponse.json(product, { status: 201 });
 

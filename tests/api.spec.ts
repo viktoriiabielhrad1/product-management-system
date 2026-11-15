@@ -49,7 +49,7 @@ test("deleteProduct removes the product", async ({ request }) => {
   const res = await request.delete(`/api/deleteProduct?id=${product.id}`);
   expect(res.status()).toBe(200);
 
-  // it should be gone now
+  //it should be gone now
   const check = await request.get(`/api/getOne?id=${product.id}`);
   expect(check.status()).toBe(404);
 });

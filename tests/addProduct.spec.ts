@@ -1,12 +1,12 @@
 import { test, expect, Page } from "@playwright/test";
 import { TEST_BRAND, getTestProducts, deleteTestProducts } from "./helpers";
 
-// clean up after every test
+//clean up after every test
 test.afterEach(async ({ request }) => {
   await deleteTestProducts(request);
 });
 
-// type values into the form fields
+//type values into the form fields
 async function fillForm(page: Page, model: string, price: string, description: string) {
   await page.getByLabel("Brand").fill(TEST_BRAND);
   await page.getByLabel("Model").fill(model);
@@ -55,12 +55,12 @@ test("an empty form is not submitted", async ({ page, request }) => {
   await page.goto("/addProduct");
   await page.getByRole("button", { name: "Add product" }).click();
 
-  // the browser stops the form because the fields are required
+  //the browser stops the form because the fields are required
   await expect(page.getByText("Product added")).toHaveCount(0);
   expect((await getTestProducts(request)).length).toBe(0);
 });
 
-// different kinds of input strings
+//different kinds of input strings
 const inputs = [
   { name: "a long string", value: "a".repeat(300) },
   { name: "a short string", value: "a" },
@@ -76,7 +76,7 @@ for (const input of inputs) {
     await page.getByRole("button", { name: "Add product" }).click();
     await expect(page.getByText("Product added")).toBeVisible();
 
-    // the database should hold exactly what we typed
+    //the database should hold exactly what the user typed
     const saved = await getTestProducts(request);
     expect(saved[0].model).toBe(input.value);
     expect(saved[0].price).toBe(input.value);

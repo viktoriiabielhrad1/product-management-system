@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-   images: {
+  images: {
     //allow images from my cloudinary cdn
     remotePatterns: [
       {
@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
       },
     ],
+  },
+
+  experimental: {
+    serverActions: {
+      //trust requests coming through the GitHub Codespaces address
+      allowedOrigins: ["localhost:3000", "*.app.github.dev"],
+    },
   },
 };
 
