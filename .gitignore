@@ -1,0 +1,15 @@
+# secrets - never upload
+.env*
+
+# installed packages and build output
+node_modules/
+.next/
+next-env.d.ts
+
+# local database files and the PocketBase program
+pb_data/
+pocketbase
+
+# test leftovers
+test-results/
+playwright-report/
